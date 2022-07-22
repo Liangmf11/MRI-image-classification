@@ -93,30 +93,6 @@ tf.keras.utils.plot_model(model,
                           show_shapes=True,
                           expand_nested=True)
 '''
-y_pred = model.predict(x_test)
-y_final=np.argmax(y_pred,axis=1)
-#print(y_final)
-
-from sklearn.metrics import confusion_matrix
-
-#Generate the confusion matrix
-cf_matrix = confusion_matrix(y_test, y_final)
-
-import seaborn as sns
-
-ax = sns.heatmap(cf_matrix, annot=True, cmap='Blues')
-
-ax.set_title('Seaborn Confusion Matrix with labels\n\n');
-ax.set_xlabel('\nPredicted Values')
-ax.set_ylabel('Actual Values ');
-
-## Ticket labels - List must be in alphabetical order
-ax.xaxis.set_ticklabels(['True','False'])
-ax.yaxis.set_ticklabels(['Positive','negative'])
-
-## Display the visualization of the Confusion Matrix.
-plt.show()
-
 
 loss_train = history.history['accuracy']
 loss_val = history.history['val_accuracy']
